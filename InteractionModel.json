@@ -1,0 +1,153 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "GetSymptoms",
+      "samples": [
+        "What are the symptoms of {DiseaseName}",
+        "What does {DiseaseName} look like",
+        "Can you show me the symptoms of {DiseaseName}",
+        "What kind of symptoms are common for {DiseaseName}",
+        "What symptoms would I expect to see for {DiseaseName}",
+        "How does {DiseaseName} usually present",
+        "What are some of the common symptoms of {DiseaseName}",
+        "What kind of symptoms would you see from someone with {DiseaseName}",
+        "What are the most common symptoms of {DiseaseName}",
+        "Tell me the symptoms of {DiseaseName}",
+        "What are the symptoms for {DiseaseName}",
+        "What symptoms would you see for {DiseaseName}"
+      ],
+      "slots": [
+        {
+          "name": "DiseaseName",
+          "type": "Diseases",
+          "samples": [
+            "{DiseaseName}"
+          ]
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "Diseases",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "Cancer",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Common Cold",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Crohn's disease",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Arthritis",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Alzheimer's",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Apraxia",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Asthma",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Appendicitis",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Black Death",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Bubonic plague",
+            "synonyms": []
+          }
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-GetSymptoms.IntentSlot-DiseaseName",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "For which disease would you like to view the symptoms?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "GetSymptoms",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "DiseaseName",
+            "type": "Diseases",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-GetSymptoms.IntentSlot-DiseaseName"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
